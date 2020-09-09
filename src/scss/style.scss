@@ -1,0 +1,47 @@
+@import
+
+// Variables
+'variables/media',
+'variables/decor',
+'variables/typography',
+
+// Mixins
+'mixins/font-face',
+'mixins/media',
+'mixins/breakpoints',
+'mixins/reset',
+'mixins/center',
+'mixins/pseudo',
+'mixins/other',
+'mixins/js/object-fit',
+'mixins/js/webp-retina',
+'mixins/js/swiper',
+'mixins/temporary',
+
+// Normalize + fonts
+'../../node_modules/normalize.css/normalize',
+'fonts',
+
+// Permanents + default blocks
+'blocks/global/permanent',
+'blocks/global/visually-hidden',
+'blocks/global/clearfix',
+'blocks/global/container',
+'blocks/global/wrapper',
+'blocks/global/body',
+
+// JS
+//'js/aos',
+
+// Blocks
+  /* global */
+'blocks/global/site-map',
+'blocks/global/animations',
+'blocks/global/button',
+'blocks/global/title',
+'blocks/global/subtitle',
+'blocks/global/header',
+'blocks/global/footer',
+
+  /* main */
+'blocks/main';

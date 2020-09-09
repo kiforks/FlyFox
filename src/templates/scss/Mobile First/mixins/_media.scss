@@ -1,0 +1,28 @@
+@mixin retina {
+  @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
+    @content;
+  }
+}
+
+// Other
+@mixin container($width) {
+
+  //Tablet
+  @include tablet {
+    & {
+      @include padding-tablet;
+    }
+  }
+
+  //Mobile
+  @include mobile {
+    & {
+      @include padding-mobile;
+    }
+  }
+
+  @include padding-desktop;
+  @include center-margin;
+  width: 100%;
+  max-width: $width + ($desktop-padding * 2);
+}
