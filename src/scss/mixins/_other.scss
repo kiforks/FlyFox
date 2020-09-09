@@ -62,6 +62,11 @@
   padding-left: $tablet-padding;
 }
 
+@mixin padding-desktop-small {
+  padding-right: $desktop-small-padding;
+  padding-left: $desktop-small-padding;
+}
+
 @mixin padding-desktop {
   padding-right: $desktop-padding;
   padding-left: $desktop-padding;

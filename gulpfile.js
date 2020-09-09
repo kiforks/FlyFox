@@ -279,7 +279,7 @@ function ttfConversion() {
 //Favicons
 function favIcons(done) {
   realFavicon.generateFavicon({
-    masterPicture: `${path.src.favIcons}.svg`,  // Change format to png if you need it. WARNING! NAME MUST BE 'favicon'
+    masterPicture: `${path.src.favIcons}.png`,  // Change format to png/svg if you need it. WARNING! NAME MUST BE 'favicon'
     dest: path.build.favIcons,
     iconsPath: '/',
     design: {

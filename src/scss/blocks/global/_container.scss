@@ -1,24 +1,26 @@
 .container {
   @include padding-desktop;
-  @include center-margin;
-  width: 100%;
-  max-width: $desktop-width + ($desktop-padding * 2);
 }
 
+
+//Desktop small
+@include desktop-small {
+  .container {
+    @include padding-desktop-small;
+  }
+}
 
 //Tablet
 @include tablet {
   .container {
     @include padding-tablet;
-    width: $tablet-width;
   }
 }
-
 
 //Mobile
 @include mobile {
   .container {
     @include padding-mobile;
-    width: 100%;
   }
 }
+

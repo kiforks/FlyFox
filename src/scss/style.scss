@@ -1,9 +1,12 @@
 @import
 
 // Variables
-'variables/media',
 'variables/decor',
 'variables/typography',
+'variables/media',
+
+//Libs
+'bootstrap/bootstrap-grid',
 
 // Mixins
 'mixins/font-face',
@@ -31,7 +34,7 @@
 'blocks/global/body',
 
 // JS
-//'js/aos',
+'js/fullpage',
 
 // Blocks
   /* global */
