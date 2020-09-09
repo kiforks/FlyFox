@@ -1,6 +1,7 @@
-new fullpage('#fullpage', {
+new fullpage('.fullpage', {
+  licenseKey: '98CABA08-F152482D-888A56C4-514642C1',
   autoScrolling: true,
   scrollHorizontally: true,
-  normalScrollElements: '#pagepiling',
-  licenseKey: '98CABA08-F152482D-888A56C4-514642C1'
+  licenseKey: '98CABA08-F152482D-888A56C4-514642C1',
+  sectionSelector: '.fullpage__item',
 });
