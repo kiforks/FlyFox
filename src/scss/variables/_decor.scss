@@ -8,10 +8,14 @@ $gold: #F7AB0D;
 /* RGB/RGBA */
 
 
+/* Gradients */
+$gradient-orange: radial-gradient(21086% 21086% at 10367% 11989%, #FA9603 0%, #F59303 100%), linear-gradient(92.87deg, #F7AC0D 4.02%, #F28B09 102.81%);
+
+
 // Etc
 $down-opacity: 30%;
 $hover-opacity: 60%;
 $transition-duration: 0.3s;
 $hover-scale: 1.1;
 $down-scale: 0.9;
-
+$main-box-shadow: 0px 10px 20px rgba(250, 150, 3, 0.15);

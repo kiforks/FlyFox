@@ -1,0 +1,68 @@
+.home__video-wrapper {
+  position: relative;
+  z-index: 1;
+
+  @include before {
+    top: 0;
+    left: 0;
+    z-index: 10;
+    min-width: 100vw;
+    min-height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+}
+
+.home__video {
+  @include object-fit(cover);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: transparent;
+}
+
+.home__inner {
+  @include flex;
+  @include center-margin;
+  position: relative;
+  z-index: 5;
+  align-items: center;
+  height: 100vh;
+}
+
+.home__box {
+  align-content: space-between;
+  min-height: 600px;
+}
+
+.home__logo {
+  height: 210px;
+  margin-bottom: 3.8%;
+}
+
+.home__image {
+  @include object-fit(contain);
+}
+
+.home__description {
+  @include reset-margin-text;
+  font-weight: bold;
+  font-size: 52px;
+  line-height: 72px;
+  font-family: $font-family-oswald;
+}
+
+.home__info {
+  @include flex;
+  align-items: center;
+  align-self: flex-end;
+}
+
+.home__rating {
+  height: 70px;
+}
+
+.home__link {
+  margin-right: 8.7%;
+}
