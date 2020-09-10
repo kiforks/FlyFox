@@ -1,0 +1,14 @@
+.main__item {
+  &--home {
+    color: white;
+    background-color: black;
+    background-image: url('../img/main/home/home.jpg');
+    background-repeat: no-repeat;
+    background-position: 0 center;
+    background-size: cover;
+  }
+}
+
+.main__wrapper {
+  height: 100vh;
+}

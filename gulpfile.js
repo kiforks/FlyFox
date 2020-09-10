@@ -98,7 +98,8 @@ function serve() {
       baseDir: `./${buildFolder}/`
     },
     port: 3000,
-    notify: false
+    notify: false,
+    tunnel: 'my-private-site'
   })
 }
 

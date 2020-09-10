@@ -1,9 +1,8 @@
 try {
-  const myObject = new ToggleClass({
-    toggleItem: 'item',
-    toggleButton: 'button',
-    modifierItem: '',
-    modifierButton: ''
+  const HEADER = new ToggleClass({
+    toggleItem: 'header',
+    toggleButton: 'header__button',
+    toggleBody: true
   });
 } catch {
   function catchError() {

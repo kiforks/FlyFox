@@ -3,10 +3,18 @@
 function toggleClass(options) {
   const itemClass = `${options.toggleItem}`;
   const buttonClass = `${options.toggleButton}`;
-  const activeClass = '--active';
-  const itemActiveClass = `${itemClass + activeClass}`;
+  const ACTIVE_CLASS = '--active';
+  const HIDE_CLASS = '--hide';
+  const ANIMATION_TIME = 300;
+  const itemHideClass = `${itemClass + HIDE_CLASS}`;
+  const itemActiveClass = `${itemClass + ACTIVE_CLASS}`;
   const toggleItem = document.querySelectorAll(`.${itemClass + options.modifierItem}`);
   const toggleButton = document.querySelectorAll(`.${buttonClass + options.modifierButton}`);
+  const BODY = document.querySelector('body');
+  const bodyActiveClass = `body${ACTIVE_CLASS}`;
+
+  let toggleBody = options.toggleBody;
+  let closing = false;
 
   if(!toggleItem || !toggleButton) {
     return;
@@ -16,7 +24,32 @@ function toggleClass(options) {
     button.onclick = event => {
       event.preventDefault();
 
-      toggleItem.forEach(selector => selector.classList.toggle(itemActiveClass));
+      toggleItem.forEach(selector => {
+        if(selector.classList.contains(itemActiveClass)) {
+          closing = true;
+
+          if(toggleBody) {
+            BODY.classList.remove(bodyActiveClass);
+          }
+
+          selector.classList.remove(itemActiveClass);
+          selector.classList.add(itemHideClass);
+
+          setTimeout(() => {
+            closing = false;
+
+            selector.classList.remove(itemHideClass);
+          }, ANIMATION_TIME)
+        } else {
+          if(!closing) {
+            selector.classList.add(itemActiveClass);
+
+            if(toggleBody) {
+              BODY.classList.add(bodyActiveClass);
+            }
+          }
+        }
+      });
     }
   })
 }
@@ -27,6 +60,7 @@ class ToggleClass {
     this.toggleButton = options.toggleButton;
     this.modifierItem = options.modifierItem ? `--${options.modifierItem}` : '';
     this.modifierButton = options.modifierButton ? `--${options.modifierButton}` : '';
+    this.toggleBody = options.toggleBody ? options.toggleBody : false;
 
     return toggleClass(this);
   }
