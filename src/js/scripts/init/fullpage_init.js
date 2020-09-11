@@ -27,7 +27,7 @@ function fullPagePlugin() {
     return;
   }
 
-  if (window.innerWidth > MIN_WIDTH) {
+  if (window.screen.width > MIN_WIDTH) {
     if (!fullPageObject) {
       createFullPage();
     }
@@ -39,7 +39,7 @@ function fullPagePlugin() {
 }
 
 function createFullPage() {
-  if(window.innerWidth < MIN_WIDTH) {
+  if(window.screen.width < MIN_WIDTH) {
     return;
   }
 
