@@ -12,3 +12,10 @@
 .main__wrapper {
   height: 100vh;
 }
+
+// <768px
+@include mobile {
+  .main__wrapper {
+    height: auto;
+  }
+}

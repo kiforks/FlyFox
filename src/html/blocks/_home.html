@@ -3,7 +3,7 @@
   <div class="main__wrapper home__wrapper">
 
     <div class="home__video-wrapper">
-      <video class="home__video" preload="auto" autoplay loop muted>
+      <video class="home__video" preload="auto" autoplay loop muted data-autoplay data-keepplaying>
         <source src="video/video.mp4" type="video/mp4">
       </video>
     </div>
@@ -11,13 +11,13 @@
     <div class="home__inner container">
       <div class="home__box row">
         <div class="home__promo">
-          <div class="home__logo col-xxl-3 offset-xxl-2">
+          <div class="home__logo col-xxl-3 col-xl-4 col-lg-5 col-md-6 offset-xxl-2">
             <img src="img/svg/home/logo.svg" alt="FlyFox" class="home__image">
           </div>
-          <p class="home__description offset-xxl-2 col-xxl-8">We will tell about your business to the world.</p>
+          <p class="home__description offset-xxl-2 col-xxl-8">We will tell about your business to the world </p>
         </div>
         <div class="home__info offset-xxl-2 col-xxl-6">
-          <a href="#" class="home__link button">Hire  Us</a>
+          <include src="src/html/blocks/button/_button_home.html"></include>
           <div class="home__rating">
             <img width="212" src="img/svg/home/rating.svg" alt="Rating" class="home__rating-image">
           </div>

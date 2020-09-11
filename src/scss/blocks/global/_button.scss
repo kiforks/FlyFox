@@ -1,12 +1,97 @@
 .button {
-  display: inline-block;
+  @include transition;
+  @include flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
   min-width: 300px;
   padding: 24px;
   font-weight: bold;
   font-size: 20px;
   line-height: 23px;
   text-align: center;
-  background-image: $gradient-orange;
+  background-color: $orange;
+  border: 1px solid transparent;
   border-radius: 50px;
   box-shadow: $main-box-shadow;
+
+  @include hover {
+    color: $orange;
+    background-color: transparent;
+    border: 1px solid $orange;
+
+    .button__circle {
+      background-color: $orange;
+    }
+  }
+
+  @include active {
+    transform: scale($down-scale);
+    opacity: $down-opacity;
+  }
+}
+
+.button__circle {
+  @include transition;
+  display: block;
+  width: 8px;
+  height: 8px;
+  margin-left: 7px;
+  background-color: white;
+  border-radius: 50%;
+  animation: circleBounce;
+  animation-duration: 4s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+
+  &:first-of-type {
+    margin-left: 15px;
+  }
+
+  &:last-of-type {
+    animation-delay: 0.2s;
+  }
+
+  &:nth-child(2) {
+    animation-delay: 0.1s;
+  }
+}
+
+// <1536px
+@include desktop-middle {
+  .button {
+    min-width: 280px;
+    padding: 20px;
+    font-size: 18px;
+    line-height: 120%;
+  }
+}
+
+// <1440px
+@include desktop-small {
+  .button {
+    min-width: 260px;
+    padding: 17px;
+    font-size: 16px;
+  }
+}
+
+// <1200px
+@include tablet {
+  .button {
+    min-width: 280px;
+    padding: 20px;
+    font-size: 18px;
+  }
+}
+
+// <768px
+@include mobile {
+  .button {
+    @include center-margin;
+    min-width: 300px;
+    padding: 24px;
+    font-size: 18px;
+    line-height: 21px;
+  }
 }

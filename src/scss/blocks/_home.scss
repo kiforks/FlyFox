@@ -1,25 +1,29 @@
 .home__video-wrapper {
-  position: relative;
+  position: absolute;
+  bottom: 0;
+  left: 0;
   z-index: 1;
+  min-width: 100vw;
+  min-height: 100vh;
 
   @include before {
     top: 0;
     left: 0;
     z-index: 10;
     min-width: 100vw;
-    min-height: 100%;
+    min-height: 100vh;
     background-color: rgba(0, 0, 0, 0.6);
   }
 }
 
 .home__video {
-  @include object-fit(cover);
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
+  min-width: 100vw;
+  min-height: 100vh;
   background-color: transparent;
+  object-fit: cover;
 }
 
 .home__inner {
@@ -29,11 +33,14 @@
   z-index: 5;
   align-items: center;
   height: 100vh;
+  background-color: transparent;
 }
 
 .home__box {
   align-content: space-between;
-  min-height: 600px;
+  min-height: 800px;
+  padding-top: 100px;
+  padding-bottom: 100px;
 }
 
 .home__logo {
@@ -66,3 +73,115 @@
 .home__link {
   margin-right: 8.7%;
 }
+
+.home__promo {
+  margin-bottom: 3%;
+}
+
+// <1536px
+@include desktop-middle {
+  .home__box {
+    min-height: 760px;
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+
+  .home__description {
+    font-size: 48px;
+    line-height: 160%;
+  }
+
+  .home__rating {
+    height: 60px;
+  }
+
+  .home__logo {
+    height: 189px;
+  }
+}
+
+// <1440px
+@include desktop-small {
+  .home__box {
+    min-height: 650px;
+    padding-top: 95px;
+    padding-bottom: 95px;
+  }
+
+  .home__description {
+    font-size: 43px;
+  }
+
+  .home__rating {
+    height: 50px;
+  }
+
+  .home__logo {
+    height: 199px;
+  }
+}
+
+// <1200px
+@include tablet {
+  .home__box {
+    min-height: 750px;
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
+
+  .home__description {
+    font-size: 46px;
+  }
+
+  .home__rating {
+    height: 60px;
+  }
+
+  .home__logo {
+    height: 189px;
+  }
+}
+
+// <768px
+@include mobile {
+  .home__inner {
+    @include header-padding-mobile;
+    height: auto;
+  }
+
+  .home__box {
+    min-height: auto;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .home__promo {
+    margin-bottom: 14.8%;
+    padding-top: 60px;
+  }
+
+  .home__logo {
+    height: 162px;
+    margin-bottom: 13%;
+  }
+
+  .home__description {
+    font-size: 32px;
+    line-height: 48px;
+    text-align: center;
+  }
+
+  .home__link {
+    margin-bottom: 30.5%;
+  }
+
+  .home__rating {
+    @include center-margin;
+    height: 33px;
+  }
+
+  .home__wrapper {
+    position: relative;
+  }
+}
+

@@ -1,7 +1,7 @@
 var fullPageObject;
 const MAIN_SELECTOR = '.main';
 const MAIN_ITEM_SELECTOR = MAIN_SELECTOR + '__item';
-const MIN_WIDTH = 1200;
+const MIN_WIDTH = 767;
 
 (function resizeWindow() {
   window.addEventListener('resize', resizeThrottler, false);
