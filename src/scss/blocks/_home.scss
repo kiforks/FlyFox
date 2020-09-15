@@ -144,6 +144,27 @@
 
 // <768px
 @include mobile {
+  .home {
+    position: relative;
+
+    @include after {
+      @include transition;
+      bottom: 0;
+      left: 0;
+      z-index: 1;
+      width: 100%;
+      height: 61px;
+      background-color: white;
+      opacity: 0;
+    }
+
+    &--scroll {
+      @include after-clean {
+        opacity: 1;
+      }
+    }
+  }
+
   .home__inner {
     @include header-padding-mobile;
     height: auto;
@@ -182,6 +203,7 @@
 
   .home__wrapper {
     position: relative;
+    padding-bottom: 13px;
   }
 }
 

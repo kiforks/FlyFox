@@ -9,6 +9,7 @@ const MIN_WIDTH = 767;
   createFullPage();
   fullPagePlugin();
 
+
   let resizeTimeout;
 
   function resizeThrottler() {

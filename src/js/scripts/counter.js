@@ -1,40 +1,52 @@
-// var number = document.querySelector('.number'),
-//   numberTop = number.getBoundingClientRect().top,
-//   start = +number.innerHTML, end = +number.dataset.max;
-//
-// window.addEventListener('scroll', function onScroll() {
-//   if(window.pageYOffset > numberTop - window.innerHeight / 2) {
-//     this.removeEventListener('scroll', onScroll);
-//     var interval = setInterval(function() {
-//       number.innerHTML = ++start;
-//       if(start == end) {
-//         clearInterval(interval);
-//       }
-//     }, 5);
-//   }
+function counterOnScroll(id, start, end, duration) {
+  let obj = document.getElementById(id);
+  let current = start;
+  let range =  end - start;
+  let increment = end > start ? 1 : -1;
+  let step = Math.abs(Math.floor(duration / range));
+  let timer = setInterval(() => {
+    current += increment;
+    obj.textContent = current;
+    if (current == end) {
+      clearInterval(timer);
+    }
+  }, step);
+
+  // // Все позиции элемента
+  // let targetPosition = {
+  //     top: window.pageYOffset + obj.getBoundingClientRect().top,
+  //     left: window.pageXOffset + obj.getBoundingClientRect().left,
+  //     right: window.pageXOffset + obj.getBoundingClientRect().right,
+  //     bottom: window.pageYOffset + obj.getBoundingClientRect().bottom
+  //   },
+  //   // Получаем позиции окна
+  //   windowPosition = {
+  //     top: window.pageYOffset,
+  //     left: window.pageXOffset,
+  //     right: window.pageXOffset + document.documentElement.clientWidth,
+  //     bottom: window.pageYOffset + document.documentElement.clientHeight
+  //   };
+  //
+  // if (targetPosition.bottom > windowPosition.top && // Если позиция нижней части элемента больше позиции верхней чайти окна, то элемент виден сверху
+  //   targetPosition.top < windowPosition.bottom && // Если позиция верхней части элемента меньше позиции нижней чайти окна, то элемент виден снизу
+  //   targetPosition.right > windowPosition.left && // Если позиция правой стороны элемента больше позиции левой части окна, то элемент виден слева
+  //   targetPosition.left < windowPosition.right) { // Если позиция левой стороны элемента меньше позиции правой чайти окна, то элемент виден справа
+  //   // Если элемент полностью видно, то запускаем следующий код
+  //   let timer = setInterval(() => {
+  //     current += increment;
+  //     obj.textContent = current;
+  //     if (current == end) {
+  //       clearInterval(timer);
+  //     }
+  //   }, step);
+  // }
+}
+
+// Запускаем функцию при прокрутке страницы
+// document.addEventListener('scroll', function() {
+//   counterOnScroll('projects',0,200,3000);
 // });
-//
-// // function counter(selector) {
-// //   const numberItem = document.querySelector(`.${selector}`);
-// //   let numberTop = numberItem.getBoundingClientRect().top;
-// //   let start = +numberItem.innerHTML;
-// //   let end = +numberItem.dataset.max;
-// //
-// //   window.addEventListener('scroll', function onScroll() {
-// //     console.log(window.pageYOffset);
-// //
-// //     console.log(numberTop - window.innerHeight / 2);
-// //
-// //     if(window.pageYOffset > numberTop - window.innerHeight / 2) {
-// //       this.removeEventListener('scroll', onScroll);
-// //       const interval = setInterval(function() {
-// //         numberItem.innerHTML = ++start;
-// //         if(start == end) {
-// //           clearInterval(interval);
-// //         }
-// //       }, 5);
-// //     }
-// //   });
-// // }
-// //
-// // counter('advantages__projects');
+
+// А также запустим функцию сразу. А то вдруг, элемент изначально видно
+counterOnScroll('projects',0,200,3000);
+counterOnScroll('years',0,5,3000);

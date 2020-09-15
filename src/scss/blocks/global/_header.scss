@@ -136,6 +136,35 @@
     width: 100%;
     transform: translate(0, 0);
 
+    &--scroll {
+      color: $black;
+      background-color: white;
+
+      .header__lang-item {
+        &--active {
+          @include before-clean {
+            border-color: $black;
+          }
+        }
+      }
+
+      .header__button {
+        @include before-clean {
+          background-color: $black;
+          box-shadow: 0 -10px 0 0 $black;
+        }
+      }
+    }
+
+    &--scroll.header--active {
+      .header__button {
+        @include before-clean {
+          background-color: white;
+          box-shadow: 0 -10px 0 0 white;
+        }
+      }
+    }
+
     &--active,
     &--hide {
       height: 100vh;
@@ -164,6 +193,11 @@
           bottom: 15px;
           transform: rotate(-225deg);
         }
+      }
+
+      .header__lang {
+        transform: translateY(-300%);
+        opacity: 0;
       }
 
       .header__nav {
@@ -204,33 +238,12 @@
           transform: rotate(0);
         }
       }
-    }
 
-    //&--scroll {
-    //  color: $black;
-    //  background-color: white;
-    //
-    //  .header__lang-item {
-    //    &--active {
-    //      @include before-clean {
-    //        border-color: $black;
-    //      }
-    //    }
-    //  }
-    //
-    //  .header__button {
-    //    @include focus-scale();
-    //    @include reset-button;
-    //    position: relative;
-    //    width: 38px;
-    //    height: 24px;
-    //
-    //    @include before {
-    //      background-color: $black;
-    //      box-shadow: 0 -10px 0 0 $black, 0 10px 0 0 $gold;
-    //    }
-    //  }
-    //}
+      .header__lang {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
   }
 
   .header__list {
@@ -266,6 +279,7 @@
   }
 
   .header__lang {
+    @include transition;
     justify-content: flex-start;
     width: 80%;
     max-height: 24px;
@@ -276,6 +290,10 @@
 
   .header__lang-item {
     margin-right: 4.9%;
+
+    @include before-clean {
+      transition: 3s all ease;
+    }
 
     &--active {
       margin-right: 7%;
