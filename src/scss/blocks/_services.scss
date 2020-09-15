@@ -1,0 +1,244 @@
+.services__wrapper {
+  @include flex;
+  align-items: center;
+  width: 100%;
+  padding-bottom: 2.8%;
+}
+
+.services__container {
+  @include flex-column;
+  justify-content: space-between;
+  min-height: 690px;
+}
+
+.services__list {
+  @include reset-list;
+  flex-grow: 0;
+  min-height: 548px;
+  font-size: 16px;
+  line-height: 32px;
+}
+
+.services__item {
+  position: relative;
+  padding-top: 3.4%;
+  padding-bottom: 8%;
+  background-color: $gray-2;
+
+  @include before {
+    @include center-transform-vertical;
+    right: 0;
+    z-index: 10;
+    width: 1px;
+    height: 80%;
+    background-color: $gray;
+  }
+
+  @include after {
+    @include center-transform-horizon;
+    bottom: 10%;
+    z-index: 10;
+    width: 40px;
+    height: 40px;
+    background-color: $gray-2;
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    background-size: contain;
+  }
+
+  &:last-of-type {
+    @include before-clean {
+      display: none;
+    }
+  }
+
+  &--web {
+    @include after-clean {
+      background-image: url('../img/svg/services/logo-1.svg');
+    }
+  }
+
+  &--mobile {
+    @include after-clean {
+      background-image: url('../img/svg/services/logo-2.svg');
+    }
+  }
+
+  &--design {
+    @include after-clean {
+      background-image: url('../img/svg/services/logo-3.svg');
+    }
+  }
+
+  &--marketing {
+    @include after-clean {
+      background-image: url('../img/svg/services/logo-4.svg');
+    }
+  }
+
+  &--maintenance {
+    @include after-clean {
+      background-image: url('../img/svg/services/logo-5.svg');
+    }
+  }
+
+  &--active {
+    @include flex;
+    align-items: flex-start;
+    padding-top: 3.7%;
+    padding-left: 3.9%;
+
+    .services__box {
+      @include flex;
+    }
+
+    .services__caption {
+      display: inline-block;
+      writing-mode: lr;
+      font-weight: 500;
+      color: $black-orange;
+    }
+
+    .services__subtitle {
+      flex-grow: 1;
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+
+    .services__button {
+      position: relative;
+      width: 20px;
+      height: 20px;
+      margin: 0;
+      margin-right: 4%;
+    }
+
+    .services__button-icon {
+      @include center-transform-vertical;
+      position: absolute;
+      left: 0;
+      z-index: 10;
+      width: 100%;
+      background-color: $gray-3;
+
+      &:first-of-type {
+        transform: rotate(45deg);
+      }
+
+      &:nth-of-type(2) {
+        width: 100%;
+        transform: rotate(-45deg);
+      }
+
+      &:nth-of-type(3) {
+        display: none;
+      }
+    }
+
+    .services__number {
+      display: inline-block;
+      margin: 0;
+      margin-right: 1.5%;
+    }
+
+    .services__subtitle-box {
+      @include flex;
+      align-items: center;
+      width: 100%;
+    }
+  }
+
+  &:not(.services__item--active) {
+    cursor: pointer;
+  }
+}
+
+.services__box {
+  display: none;
+  width: 100%;
+  font-size: 16px;
+  line-height: 32px;
+}
+
+.services__sublist {
+  @include reset-list;
+  width: 100%;
+}
+
+.services__inner {
+  flex-grow: 0;
+}
+
+.services__subtitle {
+  @include flex-column;
+  @include reset-margin-text;
+  align-items: center;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 30px;
+  font-family: $font-family-oswald;
+  text-transform: uppercase;
+}
+
+.services__number {
+  margin-bottom: 6.5%;
+  font-weight: 200;
+}
+
+.services__caption {
+  font-weight: normal;
+  color: black;
+  writing-mode: vertical-lr;
+}
+
+.services__button {
+  @include flex-column;
+  @include reset-button;
+  @include center-margin;
+  justify-content: space-between;
+  width: 20px;
+  height: 17px;
+  margin-bottom: 22px;
+}
+
+.services__button-icon {
+  height: 2px;
+  background-color: $black-orange;
+
+  &:first-of-type {
+    width: 100%;
+  }
+
+  &:nth-of-type(2) {
+    width: 75%;
+  }
+
+  &:nth-of-type(3) {
+    width: 50%;
+  }
+}
+
+// <1536px
+@include desktop-middle {
+}
+
+// <1440px
+@include desktop-small {
+}
+
+// <1200px
+@include tablet {
+}
+
+// <992px
+@include tablet-small {
+}
+
+// <768px
+@include mobile {
+}
+
+// <576px
+@include mobile-small {
+}
+

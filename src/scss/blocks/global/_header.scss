@@ -127,7 +127,6 @@
 // <768px
 @include mobile {
   .header {
-    @include transition;
     @include padding-vertical(6.5%);
     position: fixed;
     top: 0;
@@ -135,6 +134,7 @@
     z-index: 100;
     width: 100%;
     transform: translate(0, 0);
+    transition: $transition-duration background ease-in-out;
 
     &--scroll {
       color: $black;
