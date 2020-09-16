@@ -5,12 +5,6 @@
   color: black;
 }
 
-.advantages__title-box,
-.advantages__list {
-  @include padding-horizon(15px);
-  max-width: 1140px !important;
-}
-
 .advantages__list {
   margin-top: 0;
   margin-bottom: 0;
@@ -20,6 +14,11 @@
 
 .advantages__container {
   padding-top: 3.4%;
+}
+
+.advantages__number-box {
+  @include flex-column;
+  align-items: center;
 }
 
 .advantages__description {
@@ -185,9 +184,12 @@
     font-size: 13px;
   }
 
-  .advantages__list,
+  .advantages__number-inner {
+    justify-content: center;
+  }
+
   .advantages__title-box {
-    max-width: 100% !important;
+    margin-bottom: 5%;
   }
 }
 
@@ -201,6 +203,10 @@
 
   .advantages__box {
     @include flex;
+  }
+
+  .advantages__item {
+    margin-bottom: 15%;
   }
 }
 

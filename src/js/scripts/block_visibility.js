@@ -48,9 +48,12 @@ function visibleSection(target, link) {
       image.setAttribute('src', 'img/svg/home/rating_mobile.svg');
     } else {
       links[index].classList.remove(`${link}--active`);
-      header.classList.remove('header--scroll');
-      home.classList.remove('home--scroll');
-      image.setAttribute('src', 'img/svg/home/rating.svg');
+
+      if(links[index].classList.contains('home')) {
+        header.classList.remove('header--scroll');
+        home.classList.remove('home--scroll');
+        image.setAttribute('src', 'img/svg/home/rating.svg');
+      }
     }
   })
 };
