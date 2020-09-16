@@ -3,7 +3,7 @@
 function toggleClass(options) {
   const itemClass = `${options.toggleItem}`;
   const buttonClass = `${options.toggleButton}`;
-  const ACTIVE_CLASS = '--active';
+  const ACTIVE_CLASS = '--test';
   const HIDE_CLASS = '--hide';
   const ANIMATION_TIME = 300;
   const itemHideClass = `${itemClass + HIDE_CLASS}`;
@@ -13,6 +13,7 @@ function toggleClass(options) {
   const BODY = document.querySelector('body');
   const bodyActiveClass = `body${ACTIVE_CLASS}`;
 
+  let toggleTarget = options.target;
   let toggleBody = options.toggleBody;
   let closing = false;
 
@@ -24,7 +25,18 @@ function toggleClass(options) {
     button.onclick = event => {
       event.preventDefault();
 
+      let target = event.target.closest('services__item');
+
+      // if(!target) {
+      //   target = event.target;
+      // }
+
+      console.log(event.target);
+
+      console.log(target);
+
       toggleItem.forEach(selector => {
+
         if(selector.classList.contains(itemActiveClass)) {
           closing = true;
 
@@ -61,6 +73,7 @@ class ToggleClass {
     this.modifierItem = options.modifierItem ? `--${options.modifierItem}` : '';
     this.modifierButton = options.modifierButton ? `--${options.modifierButton}` : '';
     this.toggleBody = options.toggleBody ? options.toggleBody : false;
+    this.toggleBody = options.target ? options.target : false;
 
     return toggleClass(this);
   }

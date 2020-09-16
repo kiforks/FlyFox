@@ -22,4 +22,10 @@
   .main__container {
     overflow: hidden;
   }
+
+  .main__item {
+    &--advantages {
+      margin-bottom: 55px;
+    }
+  }
 }

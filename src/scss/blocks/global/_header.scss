@@ -245,6 +245,11 @@
     }
   }
 
+  .header__lang-link {
+    display: inline-block;
+    margin-top: 4px;
+  }
+
   .header__list {
     @include transition-fade;
     position: absolute;

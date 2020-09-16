@@ -29,6 +29,26 @@
     transform: scale($down-scale);
     opacity: $down-opacity;
   }
+
+  &--transparent {
+    min-width: 180px;
+    padding: 10px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 125%;
+    background-color: transparent;
+    border: 1px solid $orange;
+    box-shadow: none;
+
+    @include hover {
+      color: white;
+      background-color: $orange;
+
+      .button__circle {
+        background-color: white;
+      }
+    }
+  }
 }
 
 .button__circle {
@@ -52,6 +72,12 @@
     animation-delay: 0.2s;
   }
 
+  &--transparent {
+    width: 6px;
+    height: 6px;
+    background-color: $black-orange;
+  }
+
   &:nth-child(2) {
     animation-delay: 0.1s;
   }
@@ -60,38 +86,73 @@
 // <1536px
 @include desktop-middle {
   .button {
-    min-width: 280px;
-    padding: 20px;
-    font-size: 18px;
-    line-height: 120%;
+    &:not(.button--transparent) {
+      min-width: 280px;
+      padding: 20px;
+      font-size: 18px;
+      line-height: 120%;
+    }
   }
 }
 
 // <1440px
 @include desktop-small {
   .button {
-    min-width: 260px;
-    padding: 17px;
-    font-size: 16px;
+    &--transparent {
+      font-size: 14px;
+      line-height: 124%;
+    }
+
+    &:not(.button--transparent) {
+      min-width: 260px;
+      padding: 17px;
+      font-size: 16px;
+    }
   }
 }
 
 // <1200px
 @include tablet {
   .button {
-    min-width: 280px;
-    padding: 20px;
-    font-size: 18px;
+    &:not(.button--transparent) {
+      min-width: 280px;
+      padding: 20px;
+      font-size: 18px;
+    }
   }
 }
 
 // <768px
 @include mobile {
   .button {
-    @include center-margin;
-    min-width: 300px;
-    padding: 24px;
-    font-size: 18px;
-    line-height: 21px;
+    &--transparent {
+      min-width: 160px;
+      color: white;
+      background-color: $black-orange;
+
+      @include hover {
+        color: $orange;
+        background-color: transparent;
+        border: 1px solid $orange;
+
+        .button__circle {
+          background-color: $orange;
+        }
+      }
+    }
+
+    &:not(.button--transparent) {
+      @include center-margin;
+      min-width: 300px;
+      padding: 24px;
+      font-size: 18px;
+      line-height: 21px;
+    }
+  }
+
+  .button__circle {
+    &--transparent {
+      background-color: white;
+    }
   }
 }
