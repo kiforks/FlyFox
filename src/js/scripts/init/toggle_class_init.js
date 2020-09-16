@@ -12,9 +12,8 @@ try {
   });
 
 } catch {
-  function catchError() {
+  (function catchError() {
     return;
-  }
+  })();
 }
-
 

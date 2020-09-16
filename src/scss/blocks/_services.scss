@@ -20,10 +20,12 @@
 }
 
 .services__item {
+  @include transition;
   position: relative;
   padding-top: 5.2%;
   padding-bottom: 10%;
   background-color: $gray-2;
+  outline: none;
 
   @include before {
     @include center-transform-vertical;
@@ -158,8 +160,17 @@
     }
   }
 
+
   &:not(.services__item--active) {
     cursor: pointer;
+
+    @include hover {
+      color: $black-orange;
+    }
+
+    @include active {
+      transform: scale(0.99);
+    }
   }
 }
 
@@ -210,6 +221,7 @@
   width: 20px;
   height: 17px;
   margin-bottom: 31%;
+  outline: 0;
 }
 
 .services__button-icon {
