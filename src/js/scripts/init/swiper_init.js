@@ -11,7 +11,7 @@ function initSwiper(slider) {
       totalClass: `swiper-pagination__total`,
       bulletClass: `swiper-pagination__bullet`,
       bulletActiveClass: `swiper-pagination__bullet--active`,
-      clickable: true
+      clickable: true,
     },
     navigation: {
       nextEl: `.${slider.container}__button--next`,
@@ -58,6 +58,16 @@ if (window.screen.width < 768) {
   initSwiper(portfolio);
 }
 
+var swiper = new Swiper('.swiper-container', {
+  direction: 'vertical',
+  slidesPerView: 1,
+  spaceBetween: 30,
+  mousewheel: true,
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true,
+  },
+});
 
 
 

@@ -50,6 +50,9 @@ function createFullPage() {
     scrollHorizontally: true,
     sectionSelector: MAIN_ITEM_SELECTOR,
     verticalCentered: true,
+    onLeave() {
+      return disableScrolling('swiper-slide-1');
+    }
   });
 }
 
@@ -65,4 +68,28 @@ function destroyFullPage() {
     fullPageObject = null;
   }
 }
+
+
+
+//Visible section
+function disableScrolling(target) {
+  const sliderList = document.querySelectorAll(`.${target}`);
+
+  sliderList.forEach(slider => {
+    const targetPosition = {
+        top: window.pageYOffset + slider.getBoundingClientRect().top,
+        bottom: window.pageYOffset + slider.getBoundingClientRect().bottom
+      },
+      windowPosition = {
+        top: window.pageYOffset,
+        bottom: window.pageYOffset + document.documentElement.clientHeight
+      };
+
+    if (slider[0] && targetPosition.top === windowPosition.bottom) {
+      fullpage_api.setAllowScrolling(false, 'up');
+    } else {
+      console.log('err');
+    };
+  })
+};
 
