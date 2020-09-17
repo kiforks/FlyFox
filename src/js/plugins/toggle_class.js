@@ -3,7 +3,7 @@
 function toggleClass(options) {
   const itemClass = `${options.toggleItem}`;
   const buttonClass = `${options.toggleButton}`;
-  const ACTIVE_CLASS = '--test';
+  const ACTIVE_CLASS = '--active';
   const HIDE_CLASS = '--hide';
   const ANIMATION_TIME = 300;  // Transition duration
   const itemHideClass = itemClass + HIDE_CLASS;
@@ -82,6 +82,7 @@ function toggleClass(options) {
       } else {
         toggleItem.forEach(item => toggleInit(item));
       }
+
     }
   })
 }

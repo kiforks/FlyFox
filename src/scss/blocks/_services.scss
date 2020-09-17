@@ -20,12 +20,12 @@
 }
 
 .services__item {
-  @include transition;
   position: relative;
   padding-top: 5.2%;
   padding-bottom: 10%;
   background-color: $gray-2;
   outline: none;
+  transition: color $transition-duration ease, opacity $transition-duration ease;
 
   @include before {
     @include center-transform-vertical;
@@ -86,6 +86,8 @@
 
   &--active {
     @include flex-column;
+    min-width: 66.66667%;
+    max-width: 66.66667%;
     padding-top: 5.5%;
     padding-bottom: 4.5%;
     padding-left: 7.5%;
@@ -169,7 +171,7 @@
     }
 
     @include active {
-      transform: scale(0.99);
+      opacity: 0.8;
     }
   }
 }
@@ -248,7 +250,7 @@
 // <1536px
 @include desktop-middle {
   .services__list {
-    min-height: auto;
+    min-height: 525px;
   }
 
   .services__wrapper {
@@ -299,6 +301,7 @@
   }
 
   .services__subtitle {
+    @include transition;
     flex-direction: row;
     flex-wrap: wrap;
     font-size: 16px;
@@ -307,6 +310,7 @@
   }
 
   .services__caption {
+    @include transition;
     writing-mode: lr;
   }
 
@@ -328,6 +332,8 @@
   }
 
   .services__item {
+    min-width: 100%;
+    max-width: 100%;
     padding: 0% 11% 5.5%;
 
     @include before-clean {
@@ -359,6 +365,22 @@
 
       .services__box {
         padding-left: 0;
+      }
+    }
+
+    &:not(.services__item--active) {
+      @include hover {
+        .services__caption {
+          color: $black-orange;
+        }
+      }
+
+      @include active {
+        opacity: 1;
+
+        .services__subtitle {
+          opacity: $down-opacity;
+        }
       }
     }
   }
