@@ -1,0 +1,379 @@
+.portfolio__list {
+  @include flex;
+  @include reset-list;
+  align-content: space-between;
+}
+
+.portfolio__wrapper {
+  @include flex;
+  align-items: flex-end;
+  width: 100%;
+  padding-bottom: 6.5%;
+}
+
+.portfolio__picture {
+  @include flex;
+  position: relative;
+  width: 39.5%;
+  padding-top: 5%;
+
+  @include before-hover {
+    background-color: $orange;
+  }
+
+  @include hover {
+    .portfolio__image {
+      filter: grayscale(0%);
+    }
+  }
+
+  @include before {
+    @include transition;
+    top: 0;
+    right: 0;
+    z-index: -1;
+    width: 200px;
+    height: 200px;
+    background-color: $gray-5;
+    border-radius: 50%;
+  }
+}
+
+.portfolio__photo {
+  width: 84%;
+  height: 146px;
+}
+
+.portfolio__image {
+  @include transition;
+  @include object-fit(contain);
+  filter: grayscale(100%);
+}
+
+.portfolio__container {
+  @include flex-column;
+  justify-content: space-between;
+  align-items: flex-start;
+  min-height: 78vh;
+}
+
+.portfolio__item {
+  @include flex;
+  justify-content: space-between;
+  min-height: 250px;
+  padding: 0;
+
+  &:nth-of-type(2n+2) {
+    padding-left: 1%;
+  }
+}
+
+.portfolio__title-box {
+  width: 100%;
+}
+
+.portfolio__inner {
+  @include flex-column;
+  align-self: flex-start;
+  width: 57%;
+  min-height: 187px;
+  padding-top: 2%;
+  padding-right: 3%;
+
+  @include hover {
+    align-self: stretch;
+
+    .portfolio__subdescription {
+      max-height: 100vh;
+      margin-bottom: 6%;
+      opacity: 1;
+    }
+
+    .portfolio__link-text {
+      max-width: 0;
+      font-size: 0;
+      opacity: 0;
+    }
+
+    .portfolio__link {
+      padding-right: 40px;
+
+      @include before-clean {
+        width: 30px;
+        opacity: 1;
+      }
+
+      @include after-clean {
+        font-size: inherit;
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.portfolio__link-text {
+  @include transition-fade;
+}
+
+.portfolio__description,
+.portfolio__subtitle,
+.portfolio__subdescription {
+  @include reset-list;
+  cursor: default;
+  user-select: none;
+}
+
+.portfolio__description {
+  margin-bottom: 4%;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 27px;
+  font-family: $font-family-oswald;
+  color: $gray-4;
+}
+
+.portfolio__subtitle {
+  margin-bottom: 6.5%;
+  font-weight: bold;
+  font-size: 40px;
+  line-height: 120%;
+  color: $black;
+}
+
+.portfolio__link {
+  @include focus-opacity;
+  @include transition;
+  @include flex;
+  position: relative;
+  align-items: center;
+  align-self: flex-start;
+  margin-top: auto;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 21px;
+  color: $orange;
+  text-transform: uppercase;
+
+  @include before {
+    @include transition-fade;
+    @include center-transform-vertical;
+    right: 0;
+    z-index: 10;
+    height: 10px;
+    background-image: url('../img/svg/portfolio/arrow.svg');
+    background-repeat: no-repeat;
+    background-position: right top;
+    background-size: contain;
+    opacity: 0;
+  }
+
+  @include after-clean {
+    @include transition-fade;
+    content: 'Go to the site';
+    font: inherit;
+    font-size: 0;
+    opacity: 0;
+  }
+}
+
+.portfolio__subdescription {
+  @include transition;
+  max-height: 0;
+  overflow: hidden;
+  font-size: 16px;
+  line-height: 133%;
+  color: black;
+  opacity: 0;
+}
+
+// <1440px
+@include desktop-small {
+  .portfolio__description {
+    font-size: 14px;
+    line-height: 180%;
+  }
+
+  .portfolio__subtitle {
+    font-size: 30px;
+  }
+
+  .portfolio__item {
+    min-height: 200px;
+
+    &:nth-of-type(2n+2) {
+      padding-left: 0;
+    }
+  }
+
+  .portfolio__photo {
+    height: 130px;
+  }
+
+  .portfolio__picture {
+    @include before-clean {
+      width: 185px;
+      height: 185px;
+    }
+  }
+
+  .portfolio__wrapper {
+    align-items: center;
+    padding-bottom: 0;
+  }
+
+  .portfolio__inner {
+    min-height: auto;
+  }
+}
+
+// <1200px
+@include tablet {
+  .portfolio__description {
+    font-size: 12px;
+  }
+
+  .portfolio__subtitle {
+    font-size: 25px;
+  }
+
+  .portfolio__item {
+    min-height: 225px;
+
+    &:nth-of-type(2n+2) {
+      padding-left: 0;
+    }
+  }
+
+  .portfolio__photo {
+    height: 96px;
+  }
+
+  .portfolio__picture {
+    @include before-clean {
+      width: 140px;
+      height: 140px;
+    }
+  }
+
+  .portfolio__inner {
+    min-height: 130px;
+  }
+
+  .portfolio__container {
+    min-height: 700px;
+  }
+}
+
+// <768px
+@include mobile {
+  .portfolio__item {
+    @include padding-horizon(2.8%);
+    justify-content: center;
+    min-height: auto;
+  }
+
+  .portfolio__container {
+    min-height: auto;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .portfolio__wrapper {
+    @include padding-mobile;
+    overflow: hidden;
+  }
+
+  .portfolio__title-box {
+    margin-bottom: 11.3%;
+  }
+
+  .portfolio__picture {
+    width: 72%;
+    min-height: 197px;
+    margin-bottom: 7%;
+    padding-top: 8.5%;
+
+    @include before-clean {
+      width: 195px;
+      height: 195px;
+    }
+  }
+
+  .portfolio__photo {
+    width: 82.5%;
+    height: 152px;
+  }
+
+  .portfolio__inner {
+    align-self: stretch;
+    width: 100%;
+    padding-top: 0;
+    padding-right: 0;
+
+    @include hover {
+      .portfolio__subdescription {
+        max-height: 1000px;
+        margin-bottom: 7%;
+        opacity: 1;
+      }
+
+      .portfolio__link-text {
+        position: absolute;
+        z-index: -100;
+        opacity: 0;
+      }
+
+      .portfolio__link {
+        padding-right: 0;
+
+        @include before-clean {
+          display: none;
+        }
+
+        @include after-clean {
+          font-size: inherit;
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  .portfolio__description {
+    margin-bottom: 5%;
+    font-size: 14px;
+    line-height: 21px;
+  }
+
+  .portfolio__subtitle {
+    margin-bottom: 5%;
+    font-size: 30px;
+    line-height: 147%;
+  }
+
+  .portfolio__list {
+    flex-wrap: nowrap;
+    margin-bottom: 13%;
+  }
+
+  .portfolio__subdescription {
+    max-height: 1000px;
+    margin-bottom: 7%;
+    font-size: 16px;
+    line-height: 24px;
+    opacity: 1;
+  }
+
+  .portfolio__link-text {
+    position: absolute;
+    z-index: -100;
+    opacity: 0;
+  }
+
+  .portfolio__link {
+    @include after-clean {
+      font-size: inherit;
+      opacity: 1;
+    }
+  }
+}
+

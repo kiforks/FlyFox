@@ -49,13 +49,12 @@ function createFullPage() {
     autoScrolling: true,
     scrollHorizontally: true,
     sectionSelector: MAIN_ITEM_SELECTOR,
+    verticalCentered: true,
   });
 }
 
 function rebuildFullPage() {
   if (fullPageObject) {
-    console.log('REABUILD');
-
     fullpage_api.reBuild();
   }
 }

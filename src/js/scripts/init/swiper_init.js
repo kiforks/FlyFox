@@ -7,10 +7,10 @@ function initSwiper(slider) {
     pagination: {
       el: `.${slider.container}__pagination`,
       type: `bullets`,
-      currentClass: `${slider.container}__current`,
-      totalClass: `${slider.container}__total`,
-      bulletClass: `${slider.container}__bullet`,
-      bulletActiveClass: `${slider.container}__bullet--active`,
+      currentClass: `swiper-pagination__current`,
+      totalClass: `swiper-pagination__total`,
+      bulletClass: `swiper-pagination__bullet`,
+      bulletActiveClass: `swiper-pagination__bullet--active`,
       clickable: true
     },
     navigation: {
@@ -48,8 +48,14 @@ const mainSlider = {
   containerClass: 'advantages__box'
 };
 
+const portfolio = {
+  container: 'portfolio',
+  containerClass: 'portfolio__container'
+};
+
 if (window.screen.width < 768) {
   initSwiper(mainSlider);
+  initSwiper(portfolio);
 }
 
 

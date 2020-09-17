@@ -27,8 +27,13 @@
 }
 
 .header__link,
-.header__lang-link {
+.header__lang-linkk {
   @include focus-color($orange);
+}
+
+.header__lang-link {
+  display: inline-block;
+  margin-top: 3px;
 }
 
 .header__lang {
@@ -296,7 +301,7 @@
     margin-right: 4.9%;
 
     @include before-clean {
-      transition: 3s all ease;
+      @include transition;
     }
 
     &--active {
