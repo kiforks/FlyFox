@@ -41,6 +41,8 @@ function initSwiper(slider) {
     lockClass: `${slider.container}__lock`,
     progressbarOppositeClass: `${slider.container}__progressbar-opposite`
   });
+
+  return mySwiper;
 }
 
 const mainSlider = {
@@ -57,18 +59,5 @@ if (window.screen.width < 768) {
   initSwiper(mainSlider);
   initSwiper(portfolio);
 }
-
-var swiper = new Swiper('.swiper-container', {
-  direction: 'vertical',
-  slidesPerView: 1,
-  spaceBetween: 30,
-  mousewheel: true,
-  pagination: {
-    el: '.swiper-pagination',
-    clickable: true,
-  },
-  loop: false
-});
-
 
 
