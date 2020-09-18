@@ -67,6 +67,7 @@ var swiper = new Swiper('.swiper-container', {
     el: '.swiper-pagination',
     clickable: true,
   },
+  loop: false
 });
 
 

@@ -50,9 +50,9 @@ function createFullPage() {
     scrollHorizontally: true,
     sectionSelector: MAIN_ITEM_SELECTOR,
     verticalCentered: true,
-    onLeave() {
-      return disableScrolling('swiper-slide-1');
-    }
+    // onLeave(origin) {
+    //   return console.log(origin.index)
+    // }
   });
 }
 
@@ -68,28 +68,39 @@ function destroyFullPage() {
     fullPageObject = null;
   }
 }
+//
+// const visibleSection = target => {
+//   // Получаем нужный элемент
+//   const elements = document.querySelectorAll(`.${target}`);
+//   const test = document.querySelector('.main__item--test');
+//   const targetPositionTop = item => Math.abs(window.pageYOffset + item.getBoundingClientRect().top);
+//   const windowPositionBottom = window.pageYOffset + document.documentElement.clientHeight;
+//
+//   console.log(test.getBoundingClientRect().bottom);
+//
+//   elements.forEach((element, index) => {
+//     if((index === 0) &&  (targetPositionTop(element) === windowPositionBottom)) {
+//       fullpage_api.setAllowScrolling(true, 'up');
+//       fullpage_api.setAllowScrolling(false, 'down');
+//       console.log(1);
+//     }
+//
+//     if((index === 1) &&  ((targetPositionTop(element) - 30) === windowPositionBottom)) {
+//       console.log(2);
+//       fullpage_api.setAllowScrolling(false);
+//     }
+//
+//     if((index === 2) &&  ((targetPositionTop(element) - 30) === windowPositionBottom)) {
+//       console.log(3);
+//       fullpage_api.setAllowScrolling(true, 'down');
+//     }
+//   })
+// }
+//
+// // Запускаем функцию при прокрутке страницы
+// window.addEventListener('wheel', function() {
+//   visibleSection('swiper-slide');
+// });
 
 
-
-//Visible section
-function disableScrolling(target) {
-  const sliderList = document.querySelectorAll(`.${target}`);
-
-  sliderList.forEach(slider => {
-    const targetPosition = {
-        top: window.pageYOffset + slider.getBoundingClientRect().top,
-        bottom: window.pageYOffset + slider.getBoundingClientRect().bottom
-      },
-      windowPosition = {
-        top: window.pageYOffset,
-        bottom: window.pageYOffset + document.documentElement.clientHeight
-      };
-
-    if (slider[0] && targetPosition.top === windowPosition.bottom) {
-      fullpage_api.setAllowScrolling(false, 'up');
-    } else {
-      console.log('err');
-    };
-  })
-};
 

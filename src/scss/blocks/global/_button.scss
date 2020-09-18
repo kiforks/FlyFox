@@ -49,6 +49,18 @@
       }
     }
   }
+
+  &--large {
+    @include padding-horizon(58px, 28px);
+    @include padding-vertical(16px);
+    position: relative;
+    justify-content: flex-start;
+    align-items: center;
+    min-width: 300px;
+    line-height: 100%;
+    color: $orange;
+    background-repeat: no-repeat;
+  }
 }
 
 .button__circle {
@@ -86,6 +98,10 @@
 // <1536px
 @include desktop-middle {
   .button {
+    &--large {
+      min-width: 280px;
+    }
+
     &:not(.button--transparent) {
       min-width: 280px;
       padding: 20px;
@@ -101,6 +117,10 @@
     &--transparent {
       font-size: 14px;
       line-height: 124%;
+    }
+
+    &--large {
+      min-width: 240px;
     }
 
     &:not(.button--transparent) {
@@ -138,6 +158,19 @@
         .button__circle {
           background-color: $orange;
         }
+      }
+    }
+
+    &--large {
+      min-width: 300px;
+      font-size: 16px;
+      line-height: 20px;
+      color: $orange;
+      background-color: transparent;
+
+      @include hover {
+        color: white;
+        background-color: $orange;
       }
     }
 
