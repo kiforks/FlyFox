@@ -2,6 +2,7 @@ var fullPageObject;
 const MAIN_SELECTOR = '.main';
 const MAIN_ITEM_SELECTOR = MAIN_SELECTOR + '__item';
 const MIN_WIDTH = 767;
+const advantagesItem = document.querySelector('.main__item--advantages');
 
 (function resizeWindow() {
   window.addEventListener('resize', resizeThrottler, false);
@@ -50,11 +51,8 @@ function createFullPage() {
     scrollHorizontally: true,
     sectionSelector: MAIN_ITEM_SELECTOR,
     verticalCentered: true,
-    onLeave(origin) {
-      if(origin.index === 0) {
-        counterOnScroll('projects',0,200,2000);
-        counterOnScroll('years',0,5,2000);
-      }
+    onLeave() {
+      setTimeout(() => counterVisible(), 0);
     }
   });
 }
@@ -91,27 +89,26 @@ function counterInit(id, start, end, duration) {
 }
 
 function counterVisible() {
-  const advantagesItem = document.querySelector('.main__item--advantages');
-  const targetPositionTop = window.pageYOffset + advantagesItem.getBoundingClientRect().top - 200;
   const windowPositionTop = window.pageYOffset;
+  const targetPositionTop = window.pageYOffset + advantagesItem.getBoundingClientRect().top;
 
-  if(windowPositionTop > targetPositionTop) {
-    counterInit('projects',0,200,2000);
-    counterInit('years',0,5,2000);
+  if(window.screen.width < 768 && (windowPositionTop > targetPositionTop)) {
+    counterInit('projects', 0, 200, 2000);
+    counterInit('years', 0, 5, 2000);
+
+    window.removeEventListener('scroll', counterVisible);
+  }
+
+  if (advantagesItem.classList.contains('active') && counterBoolean) {
+    counterInit('projects', 0, 200, 2000);
+    counterInit('years', 0, 5, 2000);
 
     counterBoolean = false;
   }
 }
 
-if(counterBoolean) {
+if(window.screen.width < 768) {
   window.addEventListener('scroll', counterVisible);
 }
-
-if(!counterBoolean) {
-  window.removeEventListener('scroll', counterVisible);
-}
-
-counterVisible();
-
 
 
