@@ -14,6 +14,10 @@
   justify-content: space-between;
 }
 
+.home__rating {
+  @include transition;
+}
+
 .header__list,
 .header__lang {
   @include flex;
@@ -32,6 +36,7 @@
 }
 
 .header__lang-link {
+  @include focus-color($orange);
   display: inline-block;
   margin-top: 3px;
 }

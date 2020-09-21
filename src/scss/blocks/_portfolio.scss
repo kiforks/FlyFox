@@ -266,6 +266,10 @@
 
 // <768px
 @include mobile {
+  .portfolio {
+    padding-bottom: 90px;
+  }
+
   .portfolio__item {
     @include padding-horizon(2.8%);
     justify-content: center;

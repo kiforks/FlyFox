@@ -7,10 +7,10 @@ function initSwiper(slider) {
     pagination: {
       el: `.${slider.container}__pagination`,
       type: `bullets`,
-      currentClass: `swiper-pagination__current`,
-      totalClass: `swiper-pagination__total`,
-      bulletClass: `swiper-pagination__bullet`,
-      bulletActiveClass: `swiper-pagination__bullet--active`,
+      currentClass: `pagination__current`,
+      totalClass: `pagination__total`,
+      bulletClass: `pagination__bullet`,
+      bulletActiveClass: `pagination__bullet--active`,
       clickable: true,
     },
     navigation: {
@@ -45,6 +45,24 @@ function initSwiper(slider) {
   return mySwiper;
 }
 
+function initSwiperProgress() {
+  const swiperProgress = new Swiper('.how__container', {
+    pagination: {
+      el: '.swiper-pagination',
+      type: 'progressbar',
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+  });
+}
+
+const howSlider = {
+  container: 'how',
+  containerClass: 'how__wrapper'
+}
+
 const mainSlider = {
   container: 'advantages',
   containerClass: 'advantages__box'
@@ -58,6 +76,7 @@ const portfolio = {
 if (window.screen.width < 768) {
   initSwiper(mainSlider);
   initSwiper(portfolio);
+  initSwiperProgress();
 }
 
 

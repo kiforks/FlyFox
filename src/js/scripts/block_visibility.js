@@ -5,6 +5,7 @@ if(window.screen.width < 768) {
   window.addEventListener('scroll', function() {
     windowSectionActive('main__item', 'main__item');
   });
+  visibleSection('main__item', 'main__item');
 }
 
 function windowSectionActive(target, link) {
@@ -39,17 +40,13 @@ function visibleSection(target, link) {
       bottom: window.pageYOffset + document.documentElement.clientHeight
     };
 
-
-    if (targetPosition.top < windowPosition.top &&
-      targetPosition.bottom > windowPosition.top && !links[index].classList.contains('home')) {
-      links[index].classList.add(`${link}--active`);
-      header.classList.add('header--scroll');
-      home.classList.add('home--scroll');
-      image.setAttribute('src', 'img/svg/home/rating_mobile.svg');
-    } else {
-      links[index].classList.remove(`${link}--active`);
-
-      if(links[index].classList.contains('home')) {
+    if(links[index].classList.contains('main__item--advantages')) {
+      if(((window.pageYOffset + links[index].getBoundingClientRect().top) + 60) < (windowPosition.bottom)) {
+        links[index].classList.add(`${link}--active`);
+        header.classList.add('header--scroll');
+        home.classList.add('home--scroll');
+        image.setAttribute('src', 'img/svg/home/rating_mobile.svg');
+      } else {
         header.classList.remove('header--scroll');
         home.classList.remove('home--scroll');
         image.setAttribute('src', 'img/svg/home/rating.svg');
@@ -57,7 +54,4 @@ function visibleSection(target, link) {
     }
   })
 };
-
-// А также запустим функцию сразу. А то вдруг, элемент изначально видно
-visibleSection('main__item', 'main__item');
 

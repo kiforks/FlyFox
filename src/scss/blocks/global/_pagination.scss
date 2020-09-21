@@ -1,0 +1,22 @@
+.pagination {
+  @include flex;
+  @include reset-margin-text;
+  justify-content: center;
+  width: 100%;
+}
+
+.pagination__bullet {
+  width: 10px;
+  height: 10px;
+  margin-right: 10px;
+  background-color: $gray;
+  border-radius: 50%;
+
+  &:last-of-type {
+    margin-right: 0;
+  }
+
+  &--active {
+    background-color: $orange;
+  }
+}

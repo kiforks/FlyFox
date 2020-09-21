@@ -288,7 +288,8 @@
   }
 
   .footer__wrapper {
-    margin-bottom: 6.6%;
+    min-height: auto;
+    margin-bottom: 64px;
   }
 
   .footer__socials,
@@ -337,5 +338,16 @@
   .footer__email {
     padding-left: 25px;
     background-size: 16px;
+  }
+}
+
+
+@media(max-width: 375px) {
+  .footer__form {
+    @include padding-horizon(0);
+  }
+
+  .footer__button {
+    min-width: 280px;
   }
 }
