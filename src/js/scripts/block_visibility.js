@@ -41,7 +41,7 @@ function visibleSection(target, link) {
     };
 
     if(links[index].classList.contains('main__item--advantages')) {
-      if(((window.pageYOffset + links[index].getBoundingClientRect().top) + 60) < (windowPosition.bottom)) {
+      if(((window.pageYOffset + links[index].getBoundingClientRect().top)) < (windowPosition.bottom)) {
         links[index].classList.add(`${link}--active`);
         header.classList.add('header--scroll');
         home.classList.add('home--scroll');

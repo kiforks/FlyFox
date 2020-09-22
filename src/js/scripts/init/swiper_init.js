@@ -39,7 +39,7 @@ function initSwiper(slider) {
     progressbarFillClass: `${slider.container}__progressbar-fill`,
     clickableClass: `${slider.container}__clickable`,
     lockClass: `${slider.container}__lock`,
-    progressbarOppositeClass: `${slider.container}__progressbar-opposite`
+    progressbarOppositeClass: `${slider.container}__progressbar-opposite`,
   });
 
   return mySwiper;
@@ -55,7 +55,8 @@ function initSwiperProgress() {
     slidesPerView: 1,
     spaceBetween: 0,
     mousewheel: true,
-    speed: 400,
+    speed: 1000,
+    effect: 'coverflow',
     on: {
       slideChange: function () {
         window.swiperIndex = swiperProgress.activeIndex;
@@ -68,12 +69,16 @@ function initSwiperProgress() {
         pagination: {
           el: '.swiper-pagination',
           type: 'progressbar',
-          speed: 1000
+          speed: 1000,
         },
       }
     }
   });
+
+  return swiperProgress;
 }
+
+window.swiper = initSwiperProgress();
 
 const howSlider = {
   container: 'how',

@@ -3,7 +3,7 @@ const MAIN_SELECTOR = '.main';
 const MAIN_ITEM_SELECTOR = MAIN_SELECTOR + '__item';
 const MIN_WIDTH = 767;
 const advantagesItem = document.querySelector('.main__item--advantages');
-const howItemConsultation = document.querySelector('.how__item--consultation');
+const headerContactsLink = document.querySelector('.header__link--contacts');
 
 (function resizeWindow() {
   window.addEventListener('resize', resizeThrottler, false);
@@ -54,14 +54,14 @@ function createFullPage() {
     scrollHorizontally: true,
     sectionSelector: MAIN_ITEM_SELECTOR,
     verticalCentered: true,
-    anchors:['home', 'advantages', 'services', 'portfolio', 'how', 'footer'],
+    anchors: ['home', 'advantages', 'services', 'portfolio', 'how', 'footer'],
     scrollingSpeed: 1000,
     onLeave(origin, destination, direction) {
       setTimeout(() => {
         counterVisible();
       }, 0);
 
-      if(origin.index == 3) {
+      if(origin.index == 3 || origin.index == 5) {
         isFirstSlide = false;
       }
 
@@ -74,7 +74,11 @@ function createFullPage() {
         return false;
       }
 
-      if(origin.index == 4 && direction =='down') {
+      if(origin.index == 4 && direction =='down' && !isFirstSlide) {
+        if(window.swiperIndex === 2) {
+          setTimeout(() => isFirstSlide = true, 150);
+        }
+
         return false;
       }
     }
@@ -134,5 +138,9 @@ function counterVisible() {
 if(window.screen.width < 768) {
   window.addEventListener('scroll', counterVisible);
 }
+
+// if(window.screen.width > 768) {
+//   headerContactsLink.addEventListener('click', () => window.swiper.slideTo(2));
+// }
 
 

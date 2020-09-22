@@ -421,3 +421,13 @@
     line-height: 180%;
   }
 }
+
+@media (max-width: 375px) {
+  .services__item {
+    &--active {
+      @include after-clean {
+        top: 25%;
+      }
+    }
+  }
+}
