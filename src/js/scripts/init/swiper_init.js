@@ -47,14 +47,31 @@ function initSwiper(slider) {
 
 function initSwiperProgress() {
   const swiperProgress = new Swiper('.how__container', {
+    direction: 'horizontal',
     pagination: {
       el: '.swiper-pagination',
       type: 'progressbar',
     },
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
+    slidesPerView: 1,
+    spaceBetween: 0,
+    mousewheel: true,
+    speed: 400,
+    on: {
+      slideChange: function () {
+        window.swiperIndex = swiperProgress.activeIndex;
+      },
     },
+    breakpoints: {
+      768: {
+        direction: 'vertical',
+        slidesPerView: 1,
+        pagination: {
+          el: '.swiper-pagination',
+          type: 'progressbar',
+          speed: 1000
+        },
+      }
+    }
   });
 }
 
@@ -76,7 +93,8 @@ const portfolio = {
 if (window.screen.width < 768) {
   initSwiper(mainSlider);
   initSwiper(portfolio);
-  initSwiperProgress();
 }
+
+initSwiperProgress();
 
 

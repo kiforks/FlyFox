@@ -18,6 +18,8 @@ function toggleClass(options) {
   const forEachToggle = (callback, element = toggleItem,) => element.forEach(item => callback(item));
   const toggleTarget = options.target;
   const toggleBody = options.toggleBody;
+  const preventDefault = options.preventDefault;
+
 
   let closing = false;
 
@@ -54,7 +56,9 @@ function toggleClass(options) {
 
   toggleButton.forEach((button) => {
     button.onclick = event => {
-      event.preventDefault();
+      if(!preventDefault) {
+        event.preventDefault();
+      }
 
       let target = event.target.closest(`.${itemClass}`);
 
@@ -95,6 +99,7 @@ class ToggleClass {
     this.modifierButton = options.modifierButton ? `--${options.modifierButton}` : '';
     this.toggleBody = options.toggleBody ? options.toggleBody : false;
     this.target = options.target ? options.target : false;
+    this.preventDefault = options.preventDefault ? options.preventDefault : true;
 
     return toggleClass(this);
   }

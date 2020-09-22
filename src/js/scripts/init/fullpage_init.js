@@ -3,6 +3,7 @@ const MAIN_SELECTOR = '.main';
 const MAIN_ITEM_SELECTOR = MAIN_SELECTOR + '__item';
 const MIN_WIDTH = 767;
 const advantagesItem = document.querySelector('.main__item--advantages');
+const howItemConsultation = document.querySelector('.how__item--consultation');
 
 (function resizeWindow() {
   window.addEventListener('resize', resizeThrottler, false);
@@ -45,14 +46,37 @@ function createFullPage() {
     return;
   }
 
+  let isFirstSlide = false;
+
   fullPageObject = new fullpage(MAIN_SELECTOR, {
     licenseKey: '98CABA08-F152482D-888A56C4-514642C1',
     autoScrolling: true,
     scrollHorizontally: true,
     sectionSelector: MAIN_ITEM_SELECTOR,
     verticalCentered: true,
-    onLeave() {
-      setTimeout(() => counterVisible(), 0);
+    anchors:['home', 'advantages', 'services', 'portfolio', 'how', 'footer'],
+    scrollingSpeed: 1000,
+    onLeave(origin, destination, direction) {
+      setTimeout(() => {
+        counterVisible();
+      }, 0);
+
+      if(origin.index == 3) {
+        isFirstSlide = false;
+      }
+
+      if(origin.index == 4 && direction == 'up' && !isFirstSlide) {
+
+        if(window.swiperIndex === 0) {
+          setTimeout(() => isFirstSlide = true, 150);
+        }
+
+        return false;
+      }
+
+      if(origin.index == 4 && direction =='down') {
+        return false;
+      }
     }
   });
 }
