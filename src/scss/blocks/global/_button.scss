@@ -56,7 +56,7 @@
     position: relative;
     justify-content: flex-start;
     align-items: center;
-    min-width: 300px;
+    min-width: 220px;
     line-height: 100%;
     color: $orange;
     background-repeat: no-repeat;
@@ -99,7 +99,7 @@
 @include desktop-middle {
   .button {
     &--large {
-      min-width: 280px;
+      min-width: 200px;
     }
 
     &:not(.button--transparent) {
@@ -120,7 +120,7 @@
     }
 
     &--large {
-      min-width: 240px;
+      min-width: 180px;
     }
 
     &:not(.button--transparent) {

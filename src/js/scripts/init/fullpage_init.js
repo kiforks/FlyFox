@@ -61,6 +61,12 @@ function createFullPage() {
         counterVisible();
       }, 0);
 
+      // setTimeout(() => {
+      //   if(document.querySelector('.main__item--footer').classList.contains('active')) {
+      //
+      //   }
+      // }, 0)
+
       if(origin.index == 3 || origin.index == 5) {
         isFirstSlide = false;
       }
@@ -128,8 +134,8 @@ function counterVisible() {
   }
 
   if (advantagesItem.classList.contains('active') && counterBoolean) {
-    counterInit('projects', 0, 200, 2000);
-    counterInit('years', 0, 5, 2000);
+    counterInit('projects', 0, 250, 2000);
+    counterInit('years', 0, 10, 2000);
 
     counterBoolean = false;
   }

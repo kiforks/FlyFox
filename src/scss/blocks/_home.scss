@@ -186,16 +186,28 @@
     min-height: auto;
     padding-top: 135px;
     padding-bottom: 0;
+
+    @media (max-height: 675px) {
+      padding-top: 60px;
+    }
   }
 
   .home__promo {
     margin-bottom: 14.8%;
     padding-top: 0;
+
+    @media (max-height: 675px) {
+      margin-bottom: 20px;
+    }
   }
 
   .home__logo {
     @include center-margin;
     margin-bottom: 12.5%;
+
+    @media (max-height: 675px) {
+      margin-bottom: 20px;
+    }
   }
 
   .home__logo-box {
