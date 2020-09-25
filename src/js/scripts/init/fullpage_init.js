@@ -127,8 +127,8 @@ function counterVisible() {
   const targetPositionTop = window.pageYOffset + advantagesItem.getBoundingClientRect().top;
 
   if(window.screen.width < 768 && (windowPositionTop > targetPositionTop)) {
-    counterInit('projects', 0, 200, 2000);
-    counterInit('years', 0, 5, 2000);
+    counterInit('projects', 0, 250, 2000);
+    counterInit('years', 0, 10, 2000);
 
     window.removeEventListener('scroll', counterVisible);
   }
