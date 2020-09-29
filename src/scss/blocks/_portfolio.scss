@@ -8,7 +8,6 @@
   @include flex;
   align-items: flex-end;
   width: 100%;
-  padding-bottom: 6.5%;
 }
 
 .portfolio__picture {
@@ -45,6 +44,8 @@
   justify-content: space-between;
   align-items: flex-start;
   min-height: 78vh;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 .portfolio__item {
@@ -143,6 +144,11 @@
   color: $black;
 }
 
+.portfolio__title {
+  align-self: flex-start;
+  margin-bottom: 4%;
+}
+
 .portfolio__link {
   @include focus-opacity;
   @include transition;
@@ -218,6 +224,7 @@
   color: black;
   opacity: 0;
 }
+
 
 // <1440px
 @include desktop-small {
@@ -317,6 +324,10 @@
     @include padding-horizon(2.8%);
     justify-content: center;
     min-height: auto;
+
+    &:nth-of-type(2n+2) {
+      padding-left: 2.8%;
+    }
   }
 
   .portfolio__container {
